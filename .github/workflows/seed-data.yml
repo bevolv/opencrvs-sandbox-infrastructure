@@ -9,7 +9,7 @@ on:
         default: "development"
         type: choice
         options:
-          - ""
+          - sandbox
   workflow_call:
     inputs:
       environment:
