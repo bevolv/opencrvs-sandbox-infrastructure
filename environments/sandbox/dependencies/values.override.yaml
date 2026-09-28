@@ -2,3 +2,10 @@
 # Use this file to customize helm chart behavior
 # Please make sure your custom changes doesn't conflict with values.yaml
 ##################################################################################
+# Sandbox runs on a single 4 vCPU node. The chart default reserves 2 full CPUs
+# for Elasticsearch, which leaves too little schedulable CPU for OpenCRVS.
+# Actual usage is far lower, so reserve less and allow bursting up to the node.
+elasticsearch:
+  resources:
+    cpuRequest: '500m'
+    cpuLimit: '4'
