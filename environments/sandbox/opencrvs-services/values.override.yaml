@@ -2,3 +2,14 @@
 # Use this file to customize helm chart behavior
 # Please make sure your custom changes doesn't conflict with values.yaml
 ##################################################################################
+
+# Sandbox runs on a single 2 vCPU node (r6a.large). Kubernetes system pods already
+# reserve ~0.95 CPU, so keep OpenCRVS CPU *requests* small. Requests only affect
+# scheduling; services can still burst up to their limits when CPU is free.
+resources:
+  cpuRequest: '50m'
+  cpuLimit: '2'
+dashboards:
+  resources:
+    cpuRequest: '100m'
+    cpuLimit: '2'
