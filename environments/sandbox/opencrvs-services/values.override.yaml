@@ -13,3 +13,12 @@ dashboards:
   resources:
     cpuRequest: '100m'
     cpuLimit: '2'
+
+# Chatwoot support widget in the registration app (countryconfig PR #2).
+# The website token is public by design (it is embedded in the page).
+# support.crvs.bevolv.co is covered by the CSP wildcard *.crvs.bevolv.co.
+countryconfig:
+  env:
+    CHATWOOT_ENABLED: "true"
+    CHATWOOT_WEBSITE_TOKEN: "TSkjZmqpXWRb7FXdrwUgH17z"
+    CHATWOOT_BASE_URL: "https://support.crvs.bevolv.co"
